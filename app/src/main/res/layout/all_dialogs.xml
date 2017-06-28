@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ECECEC"
+            android:gravity="center"
+            android:minWidth="300dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="#0088CC"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tvdialogtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvdialogbody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:singleLine="false"
+                android:textColor="#0088CC"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btndialog"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/viewall_btnbg"
+                android:padding="8dp"
+                android:text="OK"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
