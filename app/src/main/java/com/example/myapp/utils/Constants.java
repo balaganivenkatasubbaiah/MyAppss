@@ -71,9 +71,8 @@ public class Constants
 
     public static String SID = "0";
     public static String SID_url = "&SID=";
-    public static String SID_url_ll = "?SID=";
-    // public static String adress_url = "oncri4tmhgtg2vl8ouj7h8joa5";
     public static String App_name = "MyDentistChoice";
+    public static String SID_url_ll = "?SID=";
 
     public static String menuitems_url = "http://www.openyantra.com/japi/rest_catalog/getCategoryTree?SID=";
     public static String productitems_url = "http://www.openyantra.com/japi/rest_product/list?category_id=";
