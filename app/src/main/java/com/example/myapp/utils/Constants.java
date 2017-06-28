@@ -1,4 +1,4 @@
-package com.example.myapp.com.example.myapp.utils;
+package com.example.myapp.utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;

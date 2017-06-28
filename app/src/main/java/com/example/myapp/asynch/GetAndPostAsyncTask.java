@@ -1,4 +1,4 @@
-package com.example.myapp.com.example.myapp.connecttoserver;
+package com.example.myapp.asynch;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -9,9 +9,9 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 
 import com.example.myapp.R;
-import com.example.myapp.com.example.myapp.dialogs.All_Dialogs;
-import com.example.myapp.com.example.myapp.dialogs.Finish_Dialogs;
-import com.example.myapp.com.example.myapp.utils.Constants;
+import com.example.myapp.dialogs.All_Dialogs;
+import com.example.myapp.dialogs.Finish_Dialogs;
+import com.example.myapp.utils.Constants;
 
 import org.json.JSONArray;
 import org.json.JSONException;

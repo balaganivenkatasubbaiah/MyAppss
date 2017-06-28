@@ -1,4 +1,4 @@
-package com.example.myapp;
+package com.example.myapp.fragments;
 
 
 import android.os.Bundle;
@@ -9,9 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.myapp.com.example.myapp.connecttoserver.ResponseListener;
-
-import org.json.JSONException;
+import com.example.myapp.R;
+import com.example.myapp.asynch.ResponseListener;
 
 /**
  * Created by 2134 on 6/27/2017.
@@ -29,6 +28,7 @@ public class HomeFragment extends Fragment implements ResponseListener
         View view = inflater.inflate(R.layout.home_fragment,container,false);
 
         viewPager = (ViewPager) view.findViewById(R.id.view_pager);
+
 
         return super.onCreateView(inflater, container, savedInstanceState);
     }

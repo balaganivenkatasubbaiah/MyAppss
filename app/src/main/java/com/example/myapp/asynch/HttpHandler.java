@@ -1,4 +1,4 @@
-package com.example.myapp.com.example.myapp.connecttoserver;
+package com.example.myapp.asynch;
 
 import android.util.Log;
 
