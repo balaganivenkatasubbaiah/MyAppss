@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment implements ResponseListener
             {
                 if(state == ViewPager.SCROLL_STATE_IDLE)
                 {
-                    int pageCount = viewPagerAdapter.getCount();
+                    //int pageCount = viewPagerAdapter.getCount();
 
                     /*if(currentPage == 0)
                     {
