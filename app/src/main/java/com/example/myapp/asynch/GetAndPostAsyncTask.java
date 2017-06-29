@@ -47,10 +47,9 @@ public class GetAndPostAsyncTask extends AsyncTask<String,Object,String>
         super.onPreExecute();
         if (show_progress) {
 
-            ProgressDialog progressDialog = new ProgressDialog((Activity) ctx);
-            progressDialog.setMessage("Loading...");
-            progressDialog.setCancelable(false);
-            progressBar = progressDialog;
+            progressBar = new ProgressDialog(ctx);
+            progressBar.setMessage("Loading...");
+            progressBar.setCancelable(false);
             progressBar.show();
         }
     }
