@@ -4,6 +4,8 @@ package com.example.myapp.fragments;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -39,7 +41,7 @@ public class HomeFragment extends Fragment implements ResponseListener
 
     ViewPager viewPager;
 
-    GetAndPostAsyncTask getBannerListTask;
+    GetAndPostAsyncTask getBannerListTask,getNewProductsTask;
 
     Context context;
     String session_id, status;
@@ -73,15 +75,12 @@ public class HomeFragment extends Fragment implements ResponseListener
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
             {
-
             }
-
             @Override
-            public void onPageSelected(int position) {
-
+            public void onPageSelected(int position)
+            {
                 currentPage = position;
             }
-
             @Override
             public void onPageScrollStateChanged(int state)
             {
@@ -98,28 +97,52 @@ public class HomeFragment extends Fragment implements ResponseListener
                         viewPager.setCurrentItem(1,false);
                     }*/
                 }
-
             }
         });
-
         try
         {
-            getBannerListTask = new GetAndPostAsyncTask(context, new URL(Constants.Banner_images+Constants.SID_url_ll+session_id),HomeFragment.this,false);
-            getBannerListTask.execute("");
+            getBannerListTask = new GetAndPostAsyncTask(context,
+                    new URL(Constants.Banner_images+Constants.SID_url_ll+session_id),HomeFragment.this,false);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+            {
+                getBannerListTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            }
+
+            else
+            {
+                getBannerListTask.execute("");
+            }
+
         }catch (MalformedURLException e)
         {
             e.printStackTrace();
         }
 
+        try
+        {
+            getNewProductsTask = new GetAndPostAsyncTask(context,
+                    new URL(Constants.newproducts_url+Constants.SID_url_ll+session_id),HomeFragment.this,false);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+            {
+                getNewProductsTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            }
+            else
+            {
+                getNewProductsTask.execute("");
+            }
 
 
+        }
+        catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        }
         return view;
     }
 
     @Override
     public void serverResponse(String response, String path) throws Exception
     {
-
         if(path.contains(Constants.Banner_images))
         {
             bannerGroupDto = new BannerGroupDto();
@@ -136,9 +159,7 @@ public class HomeFragment extends Fragment implements ResponseListener
                     bannerDto.setImages(""+jsonArray.get(i));
 
                     bannerlst.add(bannerDto);
-
                 }
-
                 bannerGroupDto.setBannersList(bannerlst);
                 Toast.makeText(context, "Banner size"+bannerGroupDto.getBannersList().size(), Toast.LENGTH_SHORT).show();
 
@@ -170,6 +191,11 @@ public class HomeFragment extends Fragment implements ResponseListener
                 bannerGroupDto.setToken(jsonObject.getString("token"));
             }
 
+
+        }
+
+        else if(path.contains(Constants.newproducts_url))
+        {
 
         }
 
