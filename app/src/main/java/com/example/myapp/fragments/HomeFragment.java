@@ -130,8 +130,6 @@ public class HomeFragment extends Fragment implements ResponseListener
             {
                 getNewProductsTask.execute("");
             }
-
-
         }
         catch (MalformedURLException e)
         {
